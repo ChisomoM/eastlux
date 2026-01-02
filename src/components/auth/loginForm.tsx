@@ -35,10 +35,10 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSignUpClick }) => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.6 }}
+      transition={{ duration: 0.5, delay: 0.3 }}
       className="space-y-6"
     >
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-5">
         <div className="space-y-2">
           <Label htmlFor="email" className="text-sm font-medium text-gray-700">
             Email Address
@@ -50,7 +50,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSignUpClick }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="h-11 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="h-12 bg-white border-gray-300 focus:border-brand-secondary-500 focus:ring-brand-secondary-500 transition-all"
             disabled={isLoading}
           />
         </div>
@@ -67,20 +67,20 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSignUpClick }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="h-11 pr-10 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="h-12 pr-12 bg-white border-gray-300 focus:border-brand-secondary-500 focus:ring-brand-secondary-500 transition-all"
               disabled={isLoading}
             />
             <Button
-              className="absolute right-0 top-0 h-11 px-3 hover:bg-transparent"
+              className="absolute right-0 top-0 h-12 px-3 hover:bg-transparent text-gray-500 hover:text-brand-main-900"
               variant="ghost"
               type="button"
               onClick={() => setSee(!see)}
               tabIndex={-1}
             >
               {see ? (
-                <Eye className="h-4 w-4 text-gray-500" />
+                <Eye className="h-5 w-5" />
               ) : (
-                <EyeClosed className="h-4 w-4 text-gray-500" />
+                <EyeClosed className="h-5 w-5" />
               )}
             </Button>
           </div>
@@ -89,7 +89,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSignUpClick }) => {
         <div className="flex justify-end">
           <button
             type="button"
-            className="text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200 hover:underline"
+            className="text-sm text-brand-secondary-600 hover:text-brand-secondary-700 font-medium transition-colors hover:underline"
           >
             Forgot password?
           </button>
@@ -97,12 +97,12 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSignUpClick }) => {
 
         <Button
           type="submit"
-          className="w-full h-11 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+          className="w-full h-12 bg-gradient-to-r from-brand-main-900 to-brand-secondary-600 hover:from-brand-main-800 hover:to-brand-secondary-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-base"
           disabled={isLoading}
         >
           {isLoading ? (
             <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
               Signing in...
             </>
           ) : (
@@ -110,31 +110,6 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSignUpClick }) => {
           )}
         </Button>
       </form>
-
-      {/* Divider */}
-      <div className="relative">
-        <div className="absolute inset-0 flex items-center">
-          <span className="w-full border-t border-gray-200" />
-        </div>
-        <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-white px-2 text-gray-500">Need access?</span>
-        </div>
-      </div>
-
-      {/* Sign Up Section */}
-      <div className="space-y-2">
-        <Button
-          type="button"
-          variant="outline"
-          onClick={onSignUpClick}
-          className="w-full h-11 border-2 border-blue-500 text-blue-600 hover:bg-blue-50 font-medium transition-all duration-300"
-        >
-          Request Admin Access
-        </Button>
-        <p className="text-xs text-center text-gray-500">
-          Contact your administrator for account setup
-        </p>
-      </div>
     </motion.div>
   );
 };

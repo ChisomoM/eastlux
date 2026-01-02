@@ -1,7 +1,8 @@
 import React from "react";
 import { LoginForm } from "@/components/auth/loginForm";
-import { Shield, Users, FileText, Lock } from "lucide-react";
+import { Shield, ArrowRight, Lock } from "lucide-react";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 interface LoginPageProps {
   onSignUpClick: () => void;
@@ -9,103 +10,114 @@ interface LoginPageProps {
 
 export const LoginPage: React.FC<LoginPageProps> = ({ onSignUpClick }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-orange-400/20 to-red-500/20 rounded-full blur-3xl"></div>
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative w-full max-w-4xl"
-      >
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
-          {/* Left side - Form */}
+    <div className="min-h-screen flex">
+      {/* Left side - Hero Image */}
+      <div className="hidden lg:block lg:w-1/2 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/Hero-image.png"
+            alt="Easttlux Ventures"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-main-900/90 via-brand-main-900/70 to-brand-secondary-500/80" />
+        </div>
+        
+        {/* Content overlay */}
+        <div className="relative z-10 h-full flex flex-col justify-between p-12">
+          {/* Logo/Brand */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 p-8"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="text-center mb-8">
-              <motion.div
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mb-4"
-              >
-                <Lock className="w-8 h-8 text-white" />
-              </motion.div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-2">Admin Access</h1>
-              <p className="text-gray-600">Sign in to manage your platform</p>
-            </div>
-            <LoginForm onSignUpClick={onSignUpClick} />
+            <h2 className="text-3xl font-bold text-white">Easttlux</h2>
+            <p className="text-brand-secondary-300 text-sm mt-1">Ventures Limited</p>
           </motion.div>
 
-          {/* Right side - Features */}
+          {/* Value proposition */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="hidden lg:block space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-6"
           >
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Eastlux Admin Portal</h2>
-              <p className="text-gray-600 text-lg">Manage contacts, applications, and more with ease</p>
+            <div className="space-y-4">
+              <h3 className="text-4xl font-bold text-white leading-tight">
+                Empowering Growth Across Zambia
+              </h3>
+              <p className="text-xl text-gray-200">
+                Deploy, train, and manage field forces that drive financial inclusion and trade growth.
+              </p>
             </div>
 
-            <div className="space-y-4">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="flex items-center gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/30"
-              >
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <Users className="w-6 h-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900">Contact Management</h3>
-                  <p className="text-sm text-gray-600">Handle customer inquiries efficiently</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="flex items-center gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/30"
-              >
-                <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-green-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900">Application Tracking</h3>
-                  <p className="text-sm text-gray-600">Monitor DSA recruitment applications</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-                className="flex items-center gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/30"
-              >
-                <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-purple-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900">Secure Dashboard</h3>
-                  <p className="text-sm text-gray-600">Protected admin interface with role-based access</p>
-                </div>
-              </motion.div>
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-6 pt-6">
+              <div className="space-y-1">
+                <div className="text-3xl font-bold text-white">200+</div>
+                <div className="text-sm text-brand-secondary-300">Active DSAs</div>
+              </div>
+              <div className="space-y-1">
+                <div className="text-3xl font-bold text-white">15+</div>
+                <div className="text-sm text-brand-secondary-300">Districts</div>
+              </div>
+              <div className="space-y-1">
+                <div className="text-3xl font-bold text-white">40+</div>
+                <div className="text-sm text-brand-secondary-300">Clients</div>
+              </div>
             </div>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
+
+      {/* Right side - Login Form */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center bg-gray-50 p-8">
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="w-full max-w-md"
+        >
+          {/* Mobile logo */}
+          <div className="lg:hidden text-center mb-8">
+            <h2 className="text-2xl font-bold text-brand-main-900">Easttlux</h2>
+            <p className="text-brand-secondary-500 text-sm">Ventures Limited</p>
+          </div>
+
+          {/* Form header */}
+          <div className="mb-8">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-brand-main-900 to-brand-secondary-500 rounded-2xl mb-6"
+            >
+              <Shield className="w-7 h-7 text-white" />
+            </motion.div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-3">Welcome Back</h1>
+            <p className="text-gray-600">
+              Sign in to access your admin dashboard
+            </p>
+          </div>
+
+          {/* Login form */}
+          <LoginForm onSignUpClick={onSignUpClick} />
+
+          {/* Footer note */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-8 pt-6 border-t border-gray-200"
+          >
+            <p className="text-sm text-center text-gray-600">
+              Protected by enterprise-grade security
+            </p>
+          </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };
