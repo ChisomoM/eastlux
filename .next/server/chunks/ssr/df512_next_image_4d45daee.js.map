@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":["file:///C:/Work/Programming/Projects/Eastlux/node_modules/.pnpm/next%4015.5.9_%40babel%2Bcore%407.2_89c643592e42d398bf8fd5aacbeada83/node_modules/next/image.js"],"sourcesContent":["module.exports = require('./dist/shared/lib/image-external')\n"],"names":[],"mappings":"AAAA,OAAO,OAAO","ignoreList":[0],"debugId":null}}]
+}

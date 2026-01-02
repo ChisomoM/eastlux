@@ -1,0 +1,302 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Easttlux Brand Colors - Light Mode */
+  --background: 0 0% 100%; /* White */
+  --foreground: 236 33% 22%; /* brand-main-900 #1c1e4e */
+  
+  --card: 0 0% 100%;
+  --card-foreground: 236 33% 22%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 236 33% 22%;
+  
+  --primary: 236 33% 22%; /* Main brand navy */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 197 85% 46%; /* Secondary light blue #12a3dc */
+  --secondary-foreground: 0 0% 100%;
+  
+  --muted: 232 23% 95%;
+  --muted-foreground: 236 15% 50%;
+  
+  --accent: 197 85% 46%; /* Secondary brand color */
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  
+  --success: 142 71% 45%;
+  --success-foreground: 0 0% 100%;
+  
+  --warning: 38 92% 50%;
+  --warning-foreground: 0 0% 100%;
+  
+  --border: 236 15% 88%;
+  --input: 236 15% 88%;
+  --ring: 197 85% 46%;
+  
+  --chart-1: 197 85% 46%; /* Secondary blue */
+  --chart-2: 236 33% 22%; /* Main navy */
+  --chart-3: 197 80% 65%; /* Lighter blue */
+  --chart-4: 236 25% 50%; /* Mid navy */
+  --chart-5: 197 60% 35%; /* Darker blue */
+  
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Easttlux Brand Colors - Dark Mode */
+  --background: 236 33% 12%; /* Darker navy #0f1029 */
+  --foreground: 0 0% 98%;
+  
+  --card: 236 30% 15%;
+  --card-foreground: 0 0% 98%;
+  
+  --popover: 236 30% 15%;
+  --popover-foreground: 0 0% 98%;
+  
+  --primary: 197 85% 46%; /* Secondary blue becomes primary in dark */
+  --primary-foreground: 236 33% 12%;
+  
+  --secondary: 236 25% 30%;
+  --secondary-foreground: 0 0% 98%;
+  
+  --muted: 236 25% 25%;
+  --muted-foreground: 232 20% 70%;
+  
+  --accent: 197 85% 46%;
+  --accent-foreground: 236 33% 12%;
+  
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+  
+  --success: 142 65% 45%;
+  --success-foreground: 0 0% 100%;
+  
+  --warning: 38 85% 55%;
+  --warning-foreground: 0 0% 100%;
+  
+  --border: 236 25% 25%;
+  --input: 236 25% 25%;
+  --ring: 197 85% 50%;
+  
+  --chart-1: 197 85% 55%;
+  --chart-2: 197 75% 40%;
+  --chart-3: 236 30% 45%;
+  --chart-4: 197 60% 70%;
+  --chart-5: 236 25% 60%;
+}
+
+
+
+@layer base {
+  * {
+    border-color: var(--border);
+    outline-color: color-mix(in srgb, var(--ring) 50%, transparent);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+      min-width: 320px;
+  min-height: 100vh;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Orange theme colors for SmartHub */
+@layer utilities {
+  .bg-orange-25 {
+    background-color: #fffcf5;
+  }
+  
+  .bg-orange-50 {
+    background-color: #fff7ed;
+  }
+  
+  .bg-orange-100 {
+    background-color: #ffedd5;
+  }
+  
+  .bg-orange-500 {
+    background-color: #f97316;
+  }
+  
+  .bg-orange-600 {
+    background-color: #ea580c;
+  }
+  
+  .text-orange-500 {
+    color: #f97316;
+  }
+  
+  .text-orange-600 {
+    color: #ea580c;
+  }
+  
+  .text-orange-700 {
+    color: #c2410c;
+  }
+  
+  .border-orange-100 {
+    border-color: #ffedd5;
+  }
+  
+  .border-orange-200 {
+    border-color: #fed7aa;
+  }
+  
+  .border-orange-300 {
+    border-color: #fdba74;
+  }
+  
+  .border-orange-500 {
+    border-color: #f97316;
+  }
+  
+  .hover\:bg-orange-50:hover {
+    background-color: #fff7ed;
+  }
+  
+  .hover\:bg-orange-100:hover {
+    background-color: #ffedd5;
+  }
+  
+  .hover\:bg-orange-600:hover {
+    background-color: #ea580c;
+  }
+  
+  .hover\:text-orange-500:hover {
+    color: #f97316;
+  }
+  
+  .hover\:border-orange-200:hover {
+    border-color: #fed7aa;
+  }
+  
+  .hover\:border-orange-300:hover {
+    border-color: #fdba74;
+  }
+  
+  .ring-orange-200 {
+    --tw-ring-color: #fed7aa;
+  }
+}
+
+/* Trusted logos marquee styles */
+.marquee {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* pause on hover for easier inspection */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* helper to make images slightly muted by default (Tailwind utilities used in component too) */
+.trusted-logo-muted {
+  filter: grayscale(100%);
+  transition: filter 200ms ease-in-out, opacity 200ms ease-in-out;
+}
+
+.trusted-logo-muted:hover {
+  filter: none;
+}
+
+/* react-horizontal-scrolling-menu custom styles */
+.trusted-scroll-menu .scroll-wrapper {
+  width: 100%;
+}
+
+.trusted-scroll-menu .scroll-container {
+  display: flex;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.trusted-scroll-menu .scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.trusted-scroll-menu .react-horizontal-scrolling-menu--scroll-container {
+  overflow: hidden;
+}
+
+.trusted-scroll-menu .react-horizontal-scrolling-menu--wrapper {
+  position: relative;
+}

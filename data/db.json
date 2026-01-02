@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": "73nnbmx1h43mjwemcqv",
+      "email": "admin@eastlux.com",
+      "password_hash": "$2b$10$SNmYWZ/ZddXEaSdVeU3bMutlvK1pyJs8gAqToD0pb1h7ZpSRAOVBe",
+      "name": "Eastlux Admin",
+      "role": "admin",
+      "is_active": true,
+      "created_at": "2026-01-02T04:59:09.704Z",
+      "updated_at": "2026-01-02T04:59:09.704Z"
+    }
+  ],
+  "contacts": [],
+  "applications": []
+}
